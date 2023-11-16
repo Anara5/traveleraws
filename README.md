@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory "fronend", you can run:
+In the project directory "frontend", you can run:
 
 ### `npm start`
 
@@ -22,7 +22,7 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-I upload the build folder's statick files in AWS's to s3 bucket.
+I upload the build folder's static files in AWS to s3 bucket.
 
 ### Code Splitting
 
