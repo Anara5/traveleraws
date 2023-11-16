@@ -36,4 +36,4 @@ For the user register and login features I also used API Gateway, Incognito, AWS
 ### Deployment
 
 The deployed version for my test project is here: http://traveler-client-s3.s3-website.eu-north-1.amazonaws.com/
-At the moments the project is still in progress, but yu can still test the implemented user register/login system.
+At the moments the project is still in progress, but you can still test the implemented user register/login system.
