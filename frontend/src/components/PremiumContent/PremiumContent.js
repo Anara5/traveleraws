@@ -1,13 +1,21 @@
 import React from 'react';
-import { getUser } from '../../service/AuthService';
+import GoogleMap from '../GoogleMap/GoogleMap';
+import PlacesList from '../PlacesList/PlacesList';
+import classes from './PremiumContent.module.css';
 
 const PremiumContent = () => {
-    const user = getUser();
-    const name = user !== 'undefined' && user ? user.name : '';
-
+    // TO_DO: add apis for DynamDB to store user's location and places list
+    // also the locations should be able to be deleted
+    // the locations should display markers on the map
+    
     return (
-        <div>
-            <h1>Hello, {name}!</h1>
+        <div className={classes.content}>
+            <div className={classes.map}>
+                <GoogleMap />
+            </div>
+            <div className={classes.placesList}>
+              <PlacesList />  
+            </div>
         </div>
     )
 }

@@ -1,0 +1,33 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 10px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .map {
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+    order: 1;
+  }
+  
+  .placesList {
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+    order: 2;
+  }
+  
+  @media (min-width: 576px) {
+    .map {
+      width: calc(80% - 20px);
+      order: 1;
+    }
+  
+    .placesList {
+      width: calc(20% - 20px);
+      order: 2;
+    }
+  }

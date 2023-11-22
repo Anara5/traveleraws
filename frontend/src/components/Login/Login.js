@@ -108,15 +108,14 @@ const Login = ({ onLogin }) => {
 
     const submitFakeButtonHandler = (event) => {
       event.preventDefault();
-    
       if (!formIsValid) {
         return;
       }
-    
       fakeButtonRef.current.click();
     };
 
     return (
+        <div className={classes.backgroundImage}>
         <Card className={classes.login}>
             <form onSubmit={submitHandler}>
                 <h5>Login</h5>
@@ -158,6 +157,7 @@ const Login = ({ onLogin }) => {
             </form>
             {message && <p className={classes.message}>{message}</p>}
         </Card>
+        </div>
     )
 }
 

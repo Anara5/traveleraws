@@ -13,6 +13,8 @@ const verifyTokenUrl = process.env.REACT_APP_VERIFY_URL;
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getUser());
   const [authenticating, setAuthenticating] = useState(true);
+  const user = getUser();
+  const name = user !== 'undefined' && user ? user.name : '';
 
   const logoutHandler = () => {
     resetUserSession();
@@ -67,6 +69,7 @@ function App() {
           {!isLoggedIn && (<NavLink to="/login">Login</NavLink>)}
           {isLoggedIn && (<NavLink to="/premium-content">Premium content</NavLink>)}
           {isLoggedIn && (<Button onClick={logoutHandler}>Logout</Button>)}
+          {isLoggedIn && (<span className='username'>{name}</span>)}
         </div>
         <div className="content">
           <Routes>

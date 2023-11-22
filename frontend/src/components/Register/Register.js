@@ -82,57 +82,59 @@ const Register = () => {
     };
   
     return (
-      <Card className={classes.register}>
-        <form onSubmit={submitHandler}>
-          <h5>Register</h5>
-          <Input
-            ref={nameInputRef}
-            id="name"
-            label="Name"
-            type="text"
-            isValid={nameIsValid}
-            value={nameState.value}
-            onChange={(event) => dispatchName({ type: 'USER_INPUT', val: event.target.value })}
-            onBlur={() => dispatchName({ type: 'INPUT_BLUR' })}
-          />
-          <Input
-            ref={emailInputRef}
-            id="email"
-            label="E-Mail"
-            type="email"
-            isValid={emailIsValid}
-            value={emailState.value}
-            onChange={(event) => dispatchEmail({ type: 'USER_INPUT', val: event.target.value })}
-            onBlur={() => dispatchEmail({ type: 'INPUT_BLUR' })}
-          />
-          <Input
-            ref={usernameInputRef}
-            id="username"
-            label="Username"
-            type="text"
-            isValid={usernameIsValid}
-            value={usernameState.value}
-            onChange={(event) => dispatchUsername({ type: 'USER_INPUT', val: event.target.value })}
-            onBlur={() => dispatchUsername({ type: 'INPUT_BLUR' })}
-          />
-          <Input
-            ref={passwordInputRef}
-            id="password"
-            label="Password"
-            type="password"
-            isValid={passwordIsValid}
-            value={passwordState.value}
-            onChange={(event) => dispatchPassword({ type: 'USER_INPUT', val: event.target.value })}
-            onBlur={() => dispatchPassword({ type: 'INPUT_BLUR' })}
-          />
-          <div className={classes.actions}>
-            <Button type="submit" className={classes.btn}>
-              Register
-            </Button>
-          </div>
-        </form>
-        {message && <p className={classes.message}>{message}</p>}
-      </Card>
+      <div className={classes.backgroundImage}>
+        <Card className={classes.register}>
+          <form onSubmit={submitHandler}>
+            <h5>Register</h5>
+            <Input
+              ref={nameInputRef}
+              id="name"
+              label="Name"
+              type="text"
+              isValid={nameIsValid}
+              value={nameState.value}
+              onChange={(event) => dispatchName({ type: 'USER_INPUT', val: event.target.value })}
+              onBlur={() => dispatchName({ type: 'INPUT_BLUR' })}
+            />
+            <Input
+              ref={emailInputRef}
+              id="email"
+              label="E-Mail"
+              type="email"
+              isValid={emailIsValid}
+              value={emailState.value}
+              onChange={(event) => dispatchEmail({ type: 'USER_INPUT', val: event.target.value })}
+              onBlur={() => dispatchEmail({ type: 'INPUT_BLUR' })}
+            />
+            <Input
+              ref={usernameInputRef}
+              id="username"
+              label="Username"
+              type="text"
+              isValid={usernameIsValid}
+              value={usernameState.value}
+              onChange={(event) => dispatchUsername({ type: 'USER_INPUT', val: event.target.value })}
+              onBlur={() => dispatchUsername({ type: 'INPUT_BLUR' })}
+            />
+            <Input
+              ref={passwordInputRef}
+              id="password"
+              label="Password"
+              type="password"
+              isValid={passwordIsValid}
+              value={passwordState.value}
+              onChange={(event) => dispatchPassword({ type: 'USER_INPUT', val: event.target.value })}
+              onBlur={() => dispatchPassword({ type: 'INPUT_BLUR' })}
+            />
+            <div className={classes.actions}>
+              <Button type="submit" className={classes.btn}>
+                Register
+              </Button>
+            </div>
+          </form>
+          {message && <p className={classes.message}>{message}</p>}
+        </Card>
+      </div>
     );
   };
   

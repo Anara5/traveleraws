@@ -1,0 +1,20 @@
+.homepage {
+    color: rgb(176, 176, 177);
+    flex: 1;
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: url('../../../public/space.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
