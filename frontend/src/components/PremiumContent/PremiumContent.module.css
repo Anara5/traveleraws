@@ -22,12 +22,12 @@
   
   @media (min-width: 576px) {
     .map {
-      width: calc(80% - 20px);
+      width: calc(85% - 20px);
       order: 1;
     }
   
     .placesList {
-      width: calc(20% - 20px);
+      width: calc(15% - 20px);
       order: 2;
     }
   }

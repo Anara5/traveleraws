@@ -123,7 +123,7 @@ const Login = ({ onLogin }) => {
                     ref={usernameInputRef}
                     id="username"
                     label="Username"
-                    type={process.env.NODE_ENV === 'development' ? 'text' : 'text'} // Change to 'text'
+                    type={process.env.NODE_ENV === 'development' ? 'text' : 'text'}
                     isValid={usernameIsValid}
                     value={usernameState.value}
                     onChange={usernameChangeHandler}

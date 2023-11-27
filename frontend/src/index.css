@@ -21,12 +21,6 @@ code {
   text-align: center;
 }
 
-.username {
-  margin: 1rem;
-  font-size: 1.3em;
-  color: yellow;
-}
-
 .header {
   height: 2rem;
   margin: 0 0 2em 0;
@@ -50,5 +44,5 @@ code {
 }
 
 .content {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }

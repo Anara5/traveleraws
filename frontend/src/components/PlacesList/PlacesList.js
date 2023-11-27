@@ -1,33 +1,30 @@
 import React from 'react';
 import classes from './PlacesList.module.css';
-
-// test data
-const PLACES = [
-    'New York',
-    'Boston',
-    'Los Angeles',
-    'San Francisco',
-    'Chicago',
-    'Seattle',
-    'Portland',
-    'Denver',
-    'Miami',
-    'Austin',
-    'Atlanta',
-    'Philadelphia'
-];
+import { usePlacesContext } from '../UI/context/PlacesProvider';
 
 const PlacesList = () => {
+
+    const { selectedPlaces, removeSelectedPlace } = usePlacesContext();
+  
+    const handleDelete = (index) => {
+        removeSelectedPlace(index);
+    };
+    
     return (
         <div className={classes.placesList}>
-            {PLACES.map((place, index) => (
-                <div className={classes.placesListItem} key={index}>
-                {place}
-                <button className={classes.placesListItemDelete}>Delete</button>
-                </div>
-            ))}
+          {selectedPlaces.map((place, index) => (
+            <div key={index} className={classes.placesListItem}>
+              {place.placeName}
+              <button
+                className={classes.placesListItemDelete}
+                onClick={() => handleDelete(index)}
+              >
+                Delete
+              </button>
+            </div>
+          ))}
         </div>
-    )
-}
-
-export default PlacesList;
+      );
+    };
+  
+  export default PlacesList;

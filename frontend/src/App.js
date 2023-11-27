@@ -67,9 +67,8 @@ function App() {
           <NavLink to="/">Home</NavLink>
           {!isLoggedIn && (<NavLink to="/register">Register</NavLink>)}
           {!isLoggedIn && (<NavLink to="/login">Login</NavLink>)}
-          {isLoggedIn && (<NavLink to="/premium-content">Premium content</NavLink>)}
+          {isLoggedIn && (<NavLink to="/premium-content">{name}'s page</NavLink>)}
           {isLoggedIn && (<Button onClick={logoutHandler}>Logout</Button>)}
-          {isLoggedIn && (<span className='username'>{name}</span>)}
         </div>
         <div className="content">
           <Routes>
