@@ -26,7 +26,7 @@ I upload the build folder's static files in AWS to s3 bucket.
 
 ### Code Splitting
 
-I splitted the code in 2 environments: backeng and frontend. Backend I uploaded to the s3 bucket and moved to the Lambda for fetching any interaction with the database: at he moment I created a table with AWS's DynamoDB for storing all registered users and operating the user's login functions and fetching their data for.
+I splitted the code in 2 environments: backend and frontend. Backend I uploaded to the s3 bucket and moved to the Lambda for fetching any interaction with the database: at he moment I created a table with AWS's DynamoDB for storing all registered users and operating the user's login functions and fetching their data for.
 
 ### Making a Progressive Web App
 

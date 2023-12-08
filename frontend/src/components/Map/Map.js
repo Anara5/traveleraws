@@ -5,6 +5,7 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption 
 import '@reach/combobox/styles.css';
 import classes from './Map.module.css';
 import { usePlacesContext } from '../UI/context/PlacesProvider';
+import { getUser } from '../../service/AuthService';
 
 const libraries = ['places'];
 
@@ -26,6 +27,8 @@ const Map = () => {
     lng: -122.45
   });
   const { addSelectedPlace, selectedPlaces } = usePlacesContext();
+
+  console.log("userId: ", getUser());
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
