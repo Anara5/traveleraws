@@ -38,8 +38,7 @@ const Register = () => {
     useEffect(() => {
       const identifier = setTimeout(() => {
         // Check if all fields are valid
-        const isFormValid =
-          nameState.isValid && emailState.isValid && usernameState.isValid && passwordState.isValid;
+        const isFormValid = nameState.isValid && emailState.isValid && usernameState.isValid && passwordState.isValid;
         setMessage(isFormValid ? null : 'All fields are required');
       }, 500);
       return () => {

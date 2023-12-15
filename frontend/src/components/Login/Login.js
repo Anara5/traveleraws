@@ -82,14 +82,14 @@ const Login = ({ onLogin }) => {
         }
         const requestBody = {
             username: usernameState.value,
-            password: passwordState.value
+            password: passwordState.value,
         }
 
         if (formIsValid) {
           axios.post(loginAPIUrl, requestBody, requestConfig)
             .then(response => {
                 setUserSession(response.data.user, response.data.token);
-                onLogin();
+                onLogin(response.data.user.username);
                 navigate('/premium-content');
             })
             .catch(error => {

@@ -30,10 +30,11 @@ I splitted the code in 2 environments: backend and frontend. Backend I uploaded 
 
 ### Making a Progressive Web App
 
+Frontend I also built and uploaded to the s3 Bucket in AWS. I added Google Map package to display the map and search for places. The user can type in places and click to save them in the list. I also created the DynamoDB table for storing places, that helps the display them on the list and place Markers on the Map. The user can also delete places by clicking on their buttons on the list. The function that is responsible for the comunication with the database I created with AWS service Lambda wich is calling the APIs that I created in Api Gateway service.
+
 ### Advanced Configuration
 For the user register and login features I also used API Gateway, Incognito, AWS Amplify...
 
 ### Deployment
 
-The deployed version for my test project is here: http://traveler-client-s3.s3-website.eu-north-1.amazonaws.com/
-At the moments the project is still in progress, but you can still test the implemented user register/login system.
+The deployed version for my test project is here: http://traveler-client-s3.s3-website.eu-north-1.amazonaws.com

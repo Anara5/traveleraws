@@ -7,14 +7,17 @@ import PremiumContent from './components/PremiumContent/PremiumContent';
 import Button from "./components/UI/Button/Button";
 import { getUser, getToken, setUserSession, resetUserSession } from './service/AuthService';
 import axios from 'axios';
+import { PlacesProvider } from './components/UI/context/PlacesProvider';
 
 const verifyTokenUrl = process.env.REACT_APP_VERIFY_URL;
+const allPlacesUrl = process.env.REACT_APP_ALL_PLACES_URL;
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!getUser());
   const [authenticating, setAuthenticating] = useState(true);
   const user = getUser();
   const name = user !== 'undefined' && user ? user.name : '';
+  const [initialUserPlaces, setItitialUserPlaces] = useState([]);
 
   const logoutHandler = () => {
     resetUserSession();
@@ -40,10 +43,21 @@ function App() {
       };
 
       axios.post(verifyTokenUrl, requestBody, requestConfig)
-        .then(response => {
+        .then(async (response) => {
           setUserSession(response.data.user, response.data.token);
           setIsLoggedIn(true);
           setAuthenticating(false);
+
+          try {
+            const userPlacesResponse = await axios.get(allPlacesUrl, {
+              params: {
+                username: user.username,
+              },
+            });
+            setItitialUserPlaces(userPlacesResponse.data.places);
+          } catch (error) {
+            console.error('Error fetching user places:', error);
+          }
         })
         .catch(() => {
           resetUserSession();
@@ -53,7 +67,7 @@ function App() {
     } else {
       setAuthenticating(false);
     }
-  }, []);
+  }, [user?.username]);
 
   const token = getToken();
   if (authenticating && token) {
@@ -77,7 +91,11 @@ function App() {
             {!isLoggedIn && <Route path="/login" element={<Login onLogin={loginHandler} />} />}
             <Route
               path="/premium-content"
-              element={isLoggedIn ? <PremiumContent /> : <Navigate to="/login" />}
+              element={isLoggedIn ?
+                ( <PlacesProvider places={initialUserPlaces}>
+                  <PremiumContent user={user} />
+                </PlacesProvider> )
+              : <Navigate to="/login" />}
             />
           </Routes>
         </div>

@@ -6,6 +6,7 @@ export function getUser() {
         return JSON.parse(user);
     }
 }
+
 export function getToken() {
     return sessionStorage.getItem('token');
 }

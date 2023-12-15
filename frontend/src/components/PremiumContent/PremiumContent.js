@@ -4,25 +4,23 @@ import PlacesList from '../PlacesList/PlacesList';
 import classes from './PremiumContent.module.css';
 import { usePlacesContext } from '../UI/context/PlacesProvider';
 
-const PremiumContent = () => {
-    const { selectedPlaces, addSelectedPlace, removeSelectedPlace } = usePlacesContext();
-
-    const handleDeletePlace = (index) => {
-        removeSelectedPlace(index);
-    };
+const PremiumContent = ({ user }) => {
+  const {
+    userPlaces,
+    selectedPlaces,
+    addSelectedPlace,
+  } = usePlacesContext();
   
-    return (
-      <>
-        <div className={classes.content}>
-          <div className={classes.map}>
-            <Map onUpdateSelectedPlaces={addSelectedPlace} />
-          </div>
-          <div className={classes.placesList}>
-            <PlacesList selectedPlaces={selectedPlaces} onDeletePlace={handleDeletePlace} />
-          </div>
-        </div>
-      </>
-    );
-  };
+  return (
+    <div className={classes.content}>
+      <div className={classes.map}>
+        <Map onUpdateSelectedPlaces={addSelectedPlace} userPlaces={userPlaces} user={user} />
+      </div>
+      <div className={classes.placesList}>
+        <PlacesList selectedPlaces={selectedPlaces} userPlaces={userPlaces} />
+      </div>
+    </div>
+  );
+};
 
 export default PremiumContent;
